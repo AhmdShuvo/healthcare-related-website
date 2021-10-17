@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import image from "../../../src/images/headerimage.png"
+
 import HomeService from './HomeService';
 const Home = () => {
 
@@ -12,15 +12,20 @@ const Home = () => {
 
     return (
         < >
-             <section className="text-danger fs-6 p-4" style={{ backgroundImage:`url(${image})` ,backgroundRepeat:'no-repeat' }}>
+
+        
+             <section className="container-fluid text-danger fs-6 p-4">
+                 <img className="img-fluid"  src="./banner.png" alt="" />
+          <div className="h-25 ">
           <h1>welcome to healthcare Organization</h1>
            <p>Health care is the maintenance or improvement of health via the prevention, diagnosis, treatment, recovery, or cure of disease, illness, injury, and other physical and mental impairments in people. Health care is delivered by health professionals and allied health fields.</p>
+          </div>
        </section>
 
-       <section className="my-4">
-           <h1>Our services</h1>
+       <section className="mt-4 container">
+           <h1 className="text-success">Our services</h1>
            <div className='container my-4'>
-           <Row xs={1} md={3} className="g-4 p-3">
+           <Row xs={1} md={3} className="g-4 my-3">
                {
                         services.map(service=><HomeService
                         key={service._id}

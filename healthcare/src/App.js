@@ -6,6 +6,7 @@ import Home from './Components/Home/Home';
 import Services from './Components/Services/Services';
 import Login from './Components/Login/Login';
 import Footer from './Components/Footer/Footer';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login></Login>
+        </Route>
+        <Route path="/*">
+          <NotFound></NotFound>
         </Route>
         
       </Switch>
