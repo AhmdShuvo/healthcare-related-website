@@ -1,10 +1,32 @@
 import React from 'react';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import './Header.css';
+
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
-            <h3>Headder</h3>
-        </div>
+        < >
+          
+            
+            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+  <Container>
+  <Navbar.Brand href="/home">Health Care Limited</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="me-auto">
+      <NavLink className="navbar-brand border border-info p-2 m-2" to="/home">Home</NavLink>
+      <NavLink className="navbar-brand border border-info p-2 m-2" to="/services">Services</NavLink>
+      <NavLink className="navbar-brand border border-info p-2 m-2" to="/login">login</NavLink>
+    </Nav>
+  </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+
+     
+          
+        </>
     );
 };
 
