@@ -17,7 +17,7 @@ const Header = () => {
     <Nav className="me-auto">
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/home">Home</NavLink>
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/services">Services</NavLink>
-      <NavLink className="navbar-brand border border-info p-2 m-2" to="/login">login</NavLink>
+      <NavLink className="navbar-brand border border-info p-2 m-2" to="/singup">SignUp</NavLink>
     </Nav>
   </Navbar.Collapse>
   </Container>

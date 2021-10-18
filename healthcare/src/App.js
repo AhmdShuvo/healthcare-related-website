@@ -4,9 +4,10 @@ import Header from './Components/Header/Header';
 import { BrowserRouter ,Switch,Route} from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Services from './Components/Services/Services';
-import Login from './Components/Login/Login';
 import Footer from './Components/Footer/Footer';
 import NotFound from './Components/NotFound/NotFound';
+import SignUp from './Components/Login/Signup/SignUp';
+import Login from './Components/Login/Login';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Route path="/services">
           <Services></Services>
           
+        </Route>
+        <Route path="/singup">
+          <SignUp></SignUp>
         </Route>
         <Route path="/login">
           <Login></Login>
