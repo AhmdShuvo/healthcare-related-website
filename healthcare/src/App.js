@@ -8,10 +8,16 @@ import Footer from './Components/Footer/Footer';
 import NotFound from './Components/NotFound/NotFound';
 import SignUp from './Components/Login/Signup/SignUp';
 import Login from './Components/Login/Login';
+import Detail from './Components/Services/Detail';
+import AuthProvider from './Components/AuthContext/AuthProvider';
+import PrivateRoute from './Components/Private Rout/PrivateRoute';
+import THit from './Components/Provate/Private';
 
 function App() {
+
+  
   return (
-    <div >
+    <AuthProvider>
     <BrowserRouter>
     <Header></Header>
       <Switch>
@@ -21,11 +27,19 @@ function App() {
         <Route path="/home">
           <Home></Home>
         </Route>
-        <Route path="/services">
+        <PrivateRoute path="/services">
           <Services></Services>
           
+        </PrivateRoute>
+
+        <PrivateRoute path="/private">
+          <THit></THit>
+          
+        </PrivateRoute>
+        <Route exact path="/service/:serviceId">
+          <Detail></Detail>
         </Route>
-        <Route path="/singup">
+        <Route path="/signup">
           <SignUp></SignUp>
         </Route>
         <Route path="/login">
@@ -38,7 +52,8 @@ function App() {
       </Switch>
       <Footer></Footer>
     </BrowserRouter>
-    </div>
+    </AuthProvider>
+    
   );
 }
 
