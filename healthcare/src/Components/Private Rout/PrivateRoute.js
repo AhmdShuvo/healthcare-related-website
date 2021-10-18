@@ -5,7 +5,6 @@ import { AuthContext } from '../AuthContext/AuthProvider';
 const PrivateRoute = ({children,...rest}) => {
 
     const {user}=useContext(AuthContext);
-    console.log(user.email);
 
     return (
         <Route

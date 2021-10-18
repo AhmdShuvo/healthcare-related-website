@@ -1,14 +1,22 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useContext } from 'react';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
-import useFirebase from '../../Hooks/UseFirebase';
+import { Link,useLocation,useHistory} from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthProvider';
 
 
 const Login = () => {
+
   const{googleSignIn}=useContext(AuthContext)
+  const location=useLocation();
+  const histry=useHistory()
+
+  const handleGoogleLogin=()=>{
+    googleSignIn().then(result=>{
+histry.push(location.state?.from)
+    });
+
+  }
 
   return (
     <div className="container">
@@ -34,7 +42,7 @@ const Login = () => {
 </Form>
 
 <h3 className="my-5">New User? <Link to="/signup">Create New account</Link> </h3>
-  <center><button onClick={googleSignIn}  className="btn btn-info my-5 p-2 border rounded-3">Continue With google</button></center>
+  <center><button onClick={handleGoogleLogin}  className="btn btn-info my-5 p-2 border rounded-3">Continue With google</button></center>
     </div>
   );
 };

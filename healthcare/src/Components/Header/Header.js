@@ -21,7 +21,7 @@ const Header = () => {
     <Nav className="me-auto">
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/home">Home</NavLink>
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/services">Services</NavLink>
-      {!user.email?<NavLink className="navbar-brand border border-info p-2 m-2" to="/login">Log in</NavLink>:<NavLink onClick={userSignOut} className="navbar-brand border border-info p-2 m-2" to="home">Sign Out</NavLink>}
+      {!user.email?<NavLink className="navbar-brand border border-info p-2 m-2" to="/login">Log in</NavLink>:<a onClick={userSignOut} className="navbar-brand border border-info p-2 m-2" href="/home">Sign Out</a>}
     </Nav>
     <h1>{user.displayName}</h1>
   </Navbar.Collapse>

@@ -11,7 +11,6 @@ import Login from './Components/Login/Login';
 import Detail from './Components/Services/Detail';
 import AuthProvider from './Components/AuthContext/AuthProvider';
 import PrivateRoute from './Components/Private Rout/PrivateRoute';
-import THit from './Components/Provate/Private';
 
 function App() {
 
@@ -27,18 +26,13 @@ function App() {
         <Route path="/home">
           <Home></Home>
         </Route>
-        <PrivateRoute path="/services">
+        <Route path="/services">
           <Services></Services>
           
-        </PrivateRoute>
-
-        <PrivateRoute path="/private">
-          <THit></THit>
-          
-        </PrivateRoute>
-        <Route exact path="/service/:serviceId">
-          <Detail></Detail>
         </Route>
+        <PrivateRoute exact path="/service/:serviceId">
+          <Detail></Detail>
+        </PrivateRoute>
         <Route path="/signup">
           <SignUp></SignUp>
         </Route>
