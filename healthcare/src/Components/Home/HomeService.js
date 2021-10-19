@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import './Homeservice.css'
 
 const HomeService = ({service}) => {
     const{name,price,about,email,phone,picture}=service
     return (
         <div>
             <Col>
-      <Card className="">
+      <Card className="card">
         <Card.Img variant="top" src={picture}  width="300px" height="160px"/>
         <Card.Body>
           <Card.Title>{name}</Card.Title>

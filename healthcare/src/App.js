@@ -11,6 +11,8 @@ import Login from './Components/Login/Login';
 import Detail from './Components/Services/Detail';
 import AuthProvider from './Components/AuthContext/AuthProvider';
 import PrivateRoute from './Components/Private Rout/PrivateRoute';
+import About from './Components/AboutUs/About';
+import Cases from './Components/CaseStudies/Cases';
 
 function App() {
 
@@ -29,6 +31,12 @@ function App() {
         <Route path="/services">
           <Services></Services>
           
+        </Route>
+        <Route path="/about">
+          <About></About>
+        </Route>
+        <Route path="/case">
+          <Cases></Cases>
         </Route>
         <PrivateRoute exact path="/service/:serviceId">
           <Detail></Detail>

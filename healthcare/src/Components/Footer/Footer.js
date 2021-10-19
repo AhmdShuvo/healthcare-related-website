@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer>
-             <center> <h3>Footer</h3></center>
+        <footer className="my-5">
+             <center> <h5> CopyRight &copy; Health-care-limited 2021</h5></center>
         </footer>
     );
 };

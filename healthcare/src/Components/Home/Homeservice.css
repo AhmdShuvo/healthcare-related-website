@@ -1,0 +1,13 @@
+.card:hover{
+   margin-top:-20px;
+    background-color: rgb(66, 125, 214);
+    color: white;
+    transition: 1s ease;
+    
+}
+
+.news:hover{
+
+    padding: 30px;
+    transition: 0.5s;
+}
