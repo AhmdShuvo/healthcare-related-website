@@ -2,13 +2,10 @@
 import Button from '@restart/ui/esm/Button';
 import React, { createContext, useContext, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import useAuth from '../../../Hooks/useAuth';
-import useFirebase from '../../../Hooks/UseFirebase';
 import { AuthContext } from '../../AuthContext/AuthProvider';
 import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import { initializeApp } from '@firebase/app';
 import firebaseConfig from '../../../Firebase/FirebaseConfig';
-import userEvent from '@testing-library/user-event';
       
 
         // Firebase App Initialize //
@@ -23,6 +20,7 @@ const SignUp = () => {
   const [email,setemail]=useState("");
   const [password,setpassword]=useState('')
   const [name,setName]=useState('')
+  const [error,setError]=useState("")
 
   // destructuring from context /
   const{googleSignIn}=useContext(AuthContext)
@@ -47,14 +45,18 @@ const SignUp = () => {
   // Registration with password //
   const handleRegister=(e)=>{
 
-    console.log(email,password,name);
+   
 e.preventDefault()
 
-createUserWithEmailAndPassword(auth,email,password).then(result=>{
- ;
-})
-
-
+          if (password.length<6){
+                   setError("pasword must be 6 characters")
+            
+          }
+          else{
+            createUserWithEmailAndPassword(auth,email,password).then(result=>{
+              ;
+             })
+          }
   }
   return (
     <>
@@ -71,7 +73,7 @@ createUserWithEmailAndPassword(auth,email,password).then(result=>{
       We'll never share your email with anyone else.
     </Form.Text>
   </Form.Group>
-
+  {password.length<6  && <div><h5 className="text-danger">password must be atleast 6 charecters</h5></div>}
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
     <Form.Control onChange={getpassword} type="password" placeholder="Password" />
@@ -86,6 +88,8 @@ createUserWithEmailAndPassword(auth,email,password).then(result=>{
 
      {/* Google LOgin OPtion */}
       <center>  <button className='btn-info' onClick={googleSignIn}>Continue With Google</button></center></div>
+
+     
     </>
 );
       }
