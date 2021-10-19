@@ -1,6 +1,6 @@
 
 import Button from '@restart/ui/esm/Button';
-import React, { useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import useAuth from '../../../Hooks/useAuth';
 import useFirebase from '../../../Hooks/UseFirebase';
@@ -10,7 +10,7 @@ import { initializeApp } from '@firebase/app';
 import firebaseConfig from '../../../Firebase/FirebaseConfig';
 import userEvent from '@testing-library/user-event';
 
-
+const UserContext=createContext()
 
 const app=initializeApp(firebaseConfig)
 
