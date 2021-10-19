@@ -9,7 +9,7 @@ const Detail = () => {
     const[service,setService]=useState({});
     useEffect(()=>{
 
-        fetch('../services.json').then(res=>res.json()).then(data=>{
+        fetch('../Services.json').then(res=>res.json()).then(data=>{
 
         const matched=data.find(serv=>serviceId===serv.name)
         

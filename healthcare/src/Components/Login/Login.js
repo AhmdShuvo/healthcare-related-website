@@ -61,11 +61,7 @@ console.log(email,password);
 signInWithEmailAndPassword(auth,email,password).then(result=>{
 
   const user=result.user;
-  console.log(user);
   updateUserName()
-  if(user.displayName){
-    histry.push("/services")
-  }
 })
 
       
