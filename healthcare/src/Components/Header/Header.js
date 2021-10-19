@@ -7,15 +7,18 @@ import useFirebase from '../../Hooks/UseFirebase';
 import { faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+
+  //  Font Awsome Icons //
   const loginIcon = <FontAwesomeIcon icon={faSignInAlt} />
   const userIcon=<FontAwesomeIcon icon={faUserCircle}/>
 
+    //  Destructuring from firebase Hook //
   const {user,userSignOut}=useFirebase()
 
     return (
      
           
-            
+            // Nave BAR ///
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
   <Container>
   <Navbar.Brand href="/home">Health Care Limited</Navbar.Brand>

@@ -22,7 +22,7 @@ const auth=getAuth();
 
 const useFirebase=()=>{
   
-
+               
 const [user,setuser]=useState({});
 
 const googleSignIn=()=>{
@@ -65,6 +65,8 @@ useEffect(()=>{
 
 
 
+
+// Returne functions for reuse ////
 
 return {user,googleSignIn,userSignOut};
 

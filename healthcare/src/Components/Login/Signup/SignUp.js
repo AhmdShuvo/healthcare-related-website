@@ -9,34 +9,42 @@ import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import { initializeApp } from '@firebase/app';
 import firebaseConfig from '../../../Firebase/FirebaseConfig';
 import userEvent from '@testing-library/user-event';
+      
 
-const UserContext=createContext()
-
+        // Firebase App Initialize //
 const app=initializeApp(firebaseConfig)
 
 const SignUp = () => {
 
   
-
+   
   const auth=getAuth()
+  // multiple use states //
   const [email,setemail]=useState("");
   const [password,setpassword]=useState('')
   const [name,setName]=useState('')
 
+  // destructuring from context /
   const{googleSignIn}=useContext(AuthContext)
   
+  // GEt Email adress From input //
   const getEmail=e=>{
     setemail(e.target.value)
   } 
   
+  // Get pasword frpm Input //
   const getpassword=e=>{
     setpassword(e.target.value)
   }
+
+  // GEt Name used from input //
   const getName=e=>{
     setName(e.target.value)
   }
 
+ 
 
+  // Registration with password //
   const handleRegister=(e)=>{
 
     console.log(email,password,name);
@@ -50,7 +58,8 @@ createUserWithEmailAndPassword(auth,email,password).then(result=>{
   }
   return (
     <>
-
+  
+  {/* FOrm  */}
    
 <Form onSubmit={handleRegister} className="container">
 
@@ -74,6 +83,8 @@ createUserWithEmailAndPassword(auth,email,password).then(result=>{
   </Button>
 </Form>
      <div className="container my-5"> <h3>Or</h3>
+
+     {/* Google LOgin OPtion */}
       <center>  <button className='btn-info' onClick={googleSignIn}>Continue With Google</button></center></div>
     </>
 );

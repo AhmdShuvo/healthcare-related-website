@@ -6,6 +6,8 @@ const HomeService = ({service}) => {
     const{name,price,about,email,phone,picture}=service
     return (
         <div>
+
+          {/* Single service for home */}
             <Col>
       <Card className="card">
         <Card.Img variant="top" src={picture}  width="300px" height="160px"/>

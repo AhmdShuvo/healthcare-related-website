@@ -38,6 +38,8 @@ function App() {
         <Route path="/case">
           <Cases></Cases>
         </Route>
+
+        {/* Private Rout for detail component / */}
         <PrivateRoute exact path="/service/:serviceId">
           <Detail></Detail>
         </PrivateRoute>

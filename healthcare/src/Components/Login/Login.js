@@ -11,15 +11,24 @@ const app=initializeApp(firebaseConfig)
 const auth=getAuth()
 const Login = () => {
 
+
+  // USe History ///
  const history=useHistory()
 
+
+//  Multiple usestates //
   const[name,setname]=useState('');
 const [email,setemail]=useState("");
 const [password,setPassword]=useState('');
   const{googleSignIn}=useContext(AuthContext)
+
+  // Use location //
   const location=useLocation();
+  // histoy hook /
   const histry=useHistory()
 
+
+  // Google Sign In OPtion //
   const handleGoogleLogin=()=>{
     googleSignIn().then(result=>{
 histry.push(location.state?.from)
@@ -28,10 +37,12 @@ histry.push(location.state?.from)
   }
 
 
+  // NAME from Input //
   const getname=e=>{
     setname(e.target.value);
   }
   
+  // Update user Name //
   const updateUserName=()=>{
     updateProfile(auth.currentUser, {
       displayName: name
@@ -44,9 +55,12 @@ histry.push(location.state?.from)
     });
 
   }
+
+  // eail adress from Input //
   const getEmail=e=>{
     setemail(e.target.value)
   }
+  // password from Inut ///
   const getpassword=e=>{
     setPassword(e.target.value)
   }

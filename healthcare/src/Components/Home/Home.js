@@ -6,6 +6,8 @@ import HomeService from './HomeService';
 const Home = () => {
 
     const[services,setServices]=useState([]);
+
+    // Fetch data //
     useEffect(()=>{
   fetch('./Services.json').then(res=>res.json()).then(data=>setServices(data.slice(0,5)));
 
