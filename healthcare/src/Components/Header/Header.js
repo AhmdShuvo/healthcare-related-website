@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import './Header.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import useFirebase from '../../Hooks/UseFirebase';
+import { faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+  const loginIcon = <FontAwesomeIcon icon={faSignInAlt} />
+  const userIcon=<FontAwesomeIcon icon={faUserCircle}/>
 
   const {user,userSignOut}=useFirebase()
 
@@ -23,9 +26,9 @@ const Header = () => {
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/services">Services</NavLink>
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/about">About</NavLink>
       <NavLink className="navbar-brand border border-info p-2 m-2" to="/case">Case studies</NavLink>
-      {!user.displayName?<NavLink className="navbar-brand border border-info p-2 m-2" to="/login">Log in</NavLink>:<a onClick={userSignOut} className="navbar-brand border border-info p-2 m-2" href="/home">Sign Out</a>}
+      {!user.displayName?<NavLink className="navbar-brand border border-info p-2 m-2" to="/login">Log in  {loginIcon}</NavLink>:<a onClick={userSignOut} className="navbar-brand border border-info p-2 m-2" href="/home">Sign Out</a>}
     </Nav>
-    <h1>{user.displayName}</h1>
+    <h1>{userIcon} {user.displayName}</h1>
   </Navbar.Collapse>
   </Container>
 </Navbar>
