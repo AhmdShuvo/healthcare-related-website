@@ -28,13 +28,7 @@ const [password,setPassword]=useState('');
   const histry=useHistory()
 
 
-  // Google Sign In OPtion //
-  const handleGoogleLogin=()=>{
-    googleSignIn().then(result=>{
-histry.push(location.state?.from)
-    });
 
-  }
 
 
   // NAME from Input //
@@ -85,7 +79,7 @@ signInWithEmailAndPassword(auth,email,password).then(result=>{
 
 <Form onSubmit={handleLogin} className="container">
 
-<input onChange={getname} className="form-control mt-5" type="text" placeholder="Your Name"/>
+<input onChange={getname} className="form-control mt-5" type="text" placeholder="Your Name" required/>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control onChange={getEmail} type="email" placeholder="Enter email" />

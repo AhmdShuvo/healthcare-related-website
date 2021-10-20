@@ -65,7 +65,7 @@ e.preventDefault()
    
 <Form onSubmit={handleRegister} className="container">
 
- <input onChange={getName} className="form-control mt-5" type="text" placeholder="Your Name"/>
+ <input onChange={getName} className="form-control mt-5" type="text" placeholder="Your Name" required/>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control onChange={getEmail} type="email" placeholder="Enter email" />

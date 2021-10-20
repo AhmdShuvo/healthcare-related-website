@@ -5,14 +5,13 @@ import { BrowserRouter ,Switch,Route} from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Services from './Components/Services/Services';
 import Footer from './Components/Footer/Footer';
-import NotFound from './Components/NotFound/NotFound';
-import SignUp from './Components/Login/Signup/SignUp';
-import Login from './Components/Login/Login';
+import NotFound from './Components/NotFound/NotFound'
 import Detail from './Components/Services/Detail';
 import AuthProvider from './Components/AuthContext/AuthProvider';
 import PrivateRoute from './Components/Private Rout/PrivateRoute';
 import About from './Components/AboutUs/About';
 import Cases from './Components/CaseStudies/Cases';
+import SignIn from './Components/Login/Signup/SignIn';
 
 function App() {
 
@@ -43,11 +42,8 @@ function App() {
         <PrivateRoute exact path="/service/:serviceId">
           <Detail></Detail>
         </PrivateRoute>
-        <Route path="/signup">
-          <SignUp></SignUp>
-        </Route>
         <Route path="/login">
-          <Login></Login>
+       <SignIn></SignIn>
         </Route>
         <Route path="/*">
           <NotFound></NotFound>
