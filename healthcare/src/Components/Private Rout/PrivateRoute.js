@@ -8,12 +8,13 @@ import { AuthContext } from '../AuthContext/AuthProvider';
 const PrivateRoute = ({children,...rest}) => {
 
     const {user,isLoading,setIsLoadng}=useContext(AuthContext);
-    if(!isLoading){
+    if(isLoading){
         console.log(isLoading);
         return "loaedddding"
         
     }
-    console.log(user);
+    console.log(isLoading);
+    console.log(user.email);
     
 
     return (

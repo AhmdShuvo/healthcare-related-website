@@ -51,7 +51,7 @@ useEffect(()=>{
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
      setuser(user)
-    setIsLoadng(true)
+    setIsLoadng(false)
       // ...
     } else {
       // User is signed out

@@ -21,7 +21,7 @@ const SignIn = () => {
         history.push(location.state?.from.pathname||"/home")
         console.log(location.state?.from.pathname);
                
-    }).finally(()=>setIsLoadng(true))
+    }).finally(()=>setIsLoadng(false))
 
   }
 
@@ -32,6 +32,8 @@ const SignIn = () => {
                console.log(history);
            })
   }
+
+  console.log(isLoading);
     return (
         <div>
             <h1 className="text-center mb-5">Please {isLogin ? "Login" : "Register"}</h1>
