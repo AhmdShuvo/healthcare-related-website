@@ -7,6 +7,7 @@ const Detail = () => {
 
       // GEt Service id using parameters //
     const {serviceId}=useParams();
+    console.log(serviceId);
    
     const[service,setService]=useState({});
     useEffect(()=>{
@@ -18,13 +19,19 @@ const Detail = () => {
 
 
           // CHeck for matched data //
-        const matched=data.find(serv=>serviceId===serv.name)
+        const matched=data.find(serv=>serviceId===serv._id)
         
         
         setService(matched)
         });
     },[serviceId])
+    console.log(service);
                
+            if(!service){
+              return "loaing"
+            }
+
+            console.log(service);
     // DEstructure from mathced data ///
     const {price,name,picture,about}=service;
     return (

@@ -22,6 +22,7 @@ const auth=getAuth();
 
 const useFirebase=()=>{
   
+  const[isLoading,setIsLoadng]=useState(false)
                
 const [user,setuser]=useState({});
 
@@ -50,6 +51,7 @@ useEffect(()=>{
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
      setuser(user)
+    setIsLoadng(true)
       // ...
     } else {
       // User is signed out
@@ -68,7 +70,7 @@ useEffect(()=>{
 
 // Returne functions for reuse ////
 
-return {user,googleSignIn,userSignOut};
+return {setuser, user,googleSignIn,userSignOut,isLoading,setIsLoadng};
 
 
 }
