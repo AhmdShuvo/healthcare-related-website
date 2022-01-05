@@ -1,18 +1,20 @@
 import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router';
-import { AuthContext } from '../AuthContext/AuthProvider';
+import useAuth from "../../Hooks/useAuth"
+// import { AuthContext } from '../AuthContext/AuthProvider';
 
 
     //  Creating Private For some components ///
         
 const PrivateRoute = ({children,...rest}) => {
 
-    const {user,loading}=useContext(AuthContext);
+    const {user,loading}=useAuth();
     if(loading){
 
-        return "loading"
+        return "loading From Private Route"
     }
-
+console.log(user.email);
+console.log(loading);
     return (
         <Route
         {...rest}

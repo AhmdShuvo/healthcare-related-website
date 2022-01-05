@@ -3,10 +3,13 @@ import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthContext/AuthProvider';
 
 const Service = ({service}) => {
   const detailIcon=<FontAwesomeIcon icon={faInfo}/>
       const{name,price,about,email,phone,picture,_id}=service;
+      const {setloading}=useContext(AuthContext)
 
       // Dynamic url ///
     const url=`service/${_id}`
@@ -29,7 +32,7 @@ const Service = ({service}) => {
         <h5>cost : ${price} </h5>
         </Card.Body>
 
-        <center> <Link to ={url}><button className="btn-info p-3 text-light fs-5 container-fluid">Details    {detailIcon} </button></Link></center>
+        <center> <Link to ={url}><button onClick={()=>setloading(false)} className="btn-info p-3 text-light fs-5 container-fluid">Details    {detailIcon} </button></Link></center>
       </Card>
     </Col>
         </div>
