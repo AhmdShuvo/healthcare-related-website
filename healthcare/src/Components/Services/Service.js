@@ -7,7 +7,6 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 const Service = ({service}) => {
   const detailIcon=<FontAwesomeIcon icon={faInfo}/>
       const{name,price,about,email,phone,picture,_id}=service;
-      console.log(service);
 
       // Dynamic url ///
     const url=`service/${_id}`

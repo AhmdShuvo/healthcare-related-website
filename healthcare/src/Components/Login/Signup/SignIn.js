@@ -5,23 +5,19 @@ import UseSignUp from '../../../Hooks/UseSignUp';
 import { AuthContext } from '../../AuthContext/AuthProvider';
 
 const SignIn = () => {
-    const {error, handleRegistration, handleName, handleEmail, handlePassword, toggleHandle, isLogin } = UseSignUp();
+    const {error, handleRegistration, handleName, handleEmail, handlePassword, toggleHandle, isLogin ,setlaoding} = UseSignUp();
 
-    const {googleSignIn,isLoading,setIsLoadng}=useContext(AuthContext);
+    const {googleSignIn}=useContext(AuthContext);
     const history = useHistory()
     const location = useLocation()
 
     
   // Google Sign In OPtion //
   const handleGoogleLogin=()=>{
-       setIsLoadng(true)
     googleSignIn().then(result=>{
-       
-        
-        history.push(location.state?.from.pathname||"/home")
-        console.log(location.state?.from.pathname);
-               
-    }).finally(()=>setIsLoadng(false))
+        setlaoding(true)
+
+    });
 
   }
 
@@ -32,8 +28,6 @@ const SignIn = () => {
                console.log(history);
            })
   }
-
-  console.log(isLoading);
     return (
         <div>
             <h1 className="text-center mb-5">Please {isLogin ? "Login" : "Register"}</h1>

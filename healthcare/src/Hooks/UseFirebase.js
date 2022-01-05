@@ -21,8 +21,7 @@ const auth=getAuth();
 
 
 const useFirebase=()=>{
-  
-  const[isLoading,setIsLoadng]=useState(false)
+  const [loading,setloading]=useState(true)
                
 const [user,setuser]=useState({});
 
@@ -46,18 +45,22 @@ const userSignOut=()=>{
 
 
 useEffect(()=>{
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-     setuser(user)
-    setIsLoadng(false)
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
+  const unSubscribe= onAuthStateChanged(auth, (user) => {
+       if (user) {
+         // User is signed in, see docs for a list of available properties
+         // https://firebase.google.com/docs/reference/js/firebase.User
+         const uid = user.uid;
+         setuser(user)
+         setloading(false)
+         // ...
+       } else {
+           setuser({})
+         // User is signed out
+         // ...
+         
+       }
+     });
+     return ()=>unSubscribe;
 },[])
 
 
@@ -70,7 +73,7 @@ useEffect(()=>{
 
 // Returne functions for reuse ////
 
-return {setuser, user,googleSignIn,userSignOut,isLoading,setIsLoadng};
+return {user,googleSignIn,userSignOut,loading,setloading};
 
 
 }
